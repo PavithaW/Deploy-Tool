@@ -1,0 +1,229 @@
+
+#toastMsg {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   background-color: #f44336;
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+   display: none;
+}
+
+#toastMsg.show {
+  display: block;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toastMsg1 {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+}
+
+#toastMsg1.show {
+    visibility: visible;
+    background-color: #f44336;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#toastMsg1.showSuccess{
+  background-color: #4CAF50;
+}
+#toastMsg2 {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+}
+
+#toastMsg2.show {
+	background-color: #f44336;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#toastMsg2.showSuccess{
+  background-color: #4CAF50;
+}
+
+#toastMsg4 {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+}
+
+#toastMsg4.show {
+	background-color: #f44336;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#toastMsg4.showSuccess{
+  background-color: #4CAF50;
+}
+
+#toastMsg5 {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+}
+
+#toastMsg5.show {
+    visibility: visible;
+    background-color: #f44336;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#toastMsg5.showSuccess{
+  background-color: #4CAF50;
+}
+
+#toastMsg6 {
+   visibility: hidden;
+   min-width: 150px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+}
+
+#toastMsg6.show {
+    visibility: visible;
+    background-color: #f44336;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#toastMsg6.showSuccess{
+  background-color: #4CAF50;
+}
+
+#toastMsg3 {
+   visibility: visible;
+   min-width: 150px;
+   max-width: 250px;
+   margin-left: 0px;
+   margin-top:20px;
+   /*background-color: #333;*/
+   background-color: #FF5722;
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1;
+   left: 0%;
+   bottom: 10px;
+   font-size: 12px;
+   display:none;
+}
+#toastMsgInstall {
+    visibility: hidden;
+    min-width: 150px;
+    margin-left: 0px;
+    margin-top: 65px;
+    /* background-color: #333; */
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+    left: 0%;
+    bottom: 10px;
+    font-size: 12px;
+}
+
+#toastMsg3_show {
+display:block;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#toastMsgInstall.show {
+    visibility: visible;
+    background-color: #f44336;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#toastMsgInstall.showSuccess{
+  background-color: #4CAF50;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

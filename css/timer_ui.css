@@ -1,0 +1,125 @@
+
+#ptTimeSelectCntr .ui-timewidget.ui-timewidget-content {
+    margin-top: 0;
+    border:1px solid #AAAAAA;
+}
+#ptTimeSelectCntr .ui-timewidget-content {
+    margin-bottom: 0.1em;
+    margin-top: 0.1em;
+    padding: 0.2em;
+}
+#ptTimeSelectCntr .ui-timewidget {
+    padding: 0.2em;
+}
+.ui-corner-all {
+    border-radius: 4px 4px 4px 4px;
+}
+.ui-timewidget-content {
+    background: url("images/jq_ui/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% #FFFFFF;
+    /*border: 1px solid #AAAAAA;*/
+    color: #222222;
+}
+.ui-timewidget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 12px;
+}
+
+
+/* header **/
+
+#ptTimeSelectCntr .ui-timewidget-header {
+    padding: 0.2em;
+}
+
+.ui-timewidget-header {
+    background: url("../images/jq_ui/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+    border: 1px solid #AAAAAA;
+    color: #222222;
+    font-weight: bold;
+}
+
+
+#ptTimeSelectCloseCntr a{
+background: url("../images/jq_ui/close_but.png");
+width:10px;
+height:10px;
+font-weight:normal;
+ text-indent: -99999px;
+ top:5px;
+}
+
+#ptTimeSelectCloseCntr a:hover{
+background: url("../images/jq_ui/close_but_hover.png");
+width:10px;
+height:10px;
+font-weight:normal;
+}
+#ptTimeSelectCloseCntr a span{
+font-size:12px;
+font-weight:normal;
+}
+
+#ptTimeSelectCloseCntr a span:hover{
+font-size:12px;
+font-weight:normal;
+}
+.ui-timestate-hover{font-weight: normal;
+ border: 1px solid #D3D3D3;
+}
+
+/** elements aa **/
+
+
+#ptTimeSelectCntr .ptTimeSelectHrAmPmCntr a {
+    margin: 1px;
+    text-align: center;
+}
+.ui-timestate-default, .ui-timewidget-content .ui-timestate-default, .ui-timewidget-header .ui-timestate-default {
+    background: url("images/jq_ui/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
+    border: 1px solid #D3D3D3;
+    color: #555555;
+    font-weight: normal;
+}
+.ui-timewidget-content a {
+    color: #222222;
+}
+
+
+/*** button ***/
+
+#ptTimeSelectCntr #ptTimeSelectSetButton a {
+    display: block;
+    float: right;
+    padding: 0.2em;
+    text-align: center;
+    width: 30%;
+}
+
+#ptTimeSelectCntr #ptTimeSelectSetButton a :hover {
+    display: block;
+    float: right;
+    padding: 0.2em;
+    text-align: center;
+    width: 30%;
+}
+
+.ui-corner-all {
+    border-radius: 0px;
+}
+
+.ui-timewidget-content {
+    color: #222222;
+}
+.ui-timewidget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 12px;
+}
+#ptTimeSelectCntr .ptTimeSelectHrCntr a, #ptTimeSelectCntr .ptTimeSelectMinCntr a {
+    display: block;
+    float: left;
+    padding: .2em;
+    width: 15.42%;
+    margin: 1px;
+    text-align: center;
+    text-decoration: none;
+}
