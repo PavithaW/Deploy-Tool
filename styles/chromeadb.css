@@ -1,0 +1,1665 @@
+html {
+    overflow-y: auto;
+}
+
+body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+        font-family: Arial;
+    background-color:#f5f5f5;
+}
+a {
+    color: #2a2b2a;
+    text-decoration: none;
+}
+input, textarea, select, button {
+        font-family: Arial;
+}
+html input[disabled] {
+    cursor: default;
+    /*opacity: 0.8;*/
+    background-color: rgb(235, 235, 228);
+   /* border: 1px solid #c8c8c8 !important; */
+} 
+.containerCustomized{
+    padding-top:80px;
+    width:100%;
+    color: #fff;
+    height: 100vh;
+}
+.row{
+    height: 100%;
+}
+.tab-pane input {
+    margin-bottom: 10px;
+}
+
+.tab-content {
+    /*margin-top: 10px;*/
+}
+
+.tab-pane .btn {
+    width: 80px;
+}
+
+.badge {
+    /*background-color: #d9544f;*/
+    background-color: #fda128;
+}
+
+tr > td.active {
+    font-weight: bold;
+}
+
+.install-package-button {
+    width: 150px !important;
+}
+.sideload-package-button {
+    width: 150px !important;
+    margin-left: 5px;
+}
+.register-package-button {
+    width: 150px !important;
+    margin-left: 5px;
+}
+
+div .search-packages {
+    float: right;
+    width: 80%;
+    display: none;
+}
+
+div .install-package {
+    float: left;
+}
+
+.navbar-brand {
+    padding: 0 0 0 15px;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.navbar-bottom-brand {
+    padding: 0;
+}
+
+.navbar-bottom-brand img {
+    height: 50px;
+}
+
+.navbar-bottom-brand a:hover {
+    text-decoration: none;
+}
+
+th {
+    text-align: center;
+}
+
+.navbar {
+    background-color: #373737;
+    min-height:80px;
+}
+
+#mousepad {
+    color: white;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.ng-hide {
+    display: block !important;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.headerWrapper{
+    width:100%;
+}
+.logoWrapper{
+    margin-top:15px;
+    display: inline-block;
+}
+.logoText{
+    color: #ffffff;
+    font-family: arial;
+    margin-left: 15px;
+    font-size: 22px;
+}
+.panel {
+    margin-bottom: 20px;
+    /*background-color: #f5f5f5;*/
+    background:transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel-primary {
+    border: none;
+    /*border-color: #dddddd;*/
+}
+.panel-primary>.panel-heading {
+    /*color: #fff;
+    background-color: #2a2b2a;
+    border-color: #2a2b2a;*/
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+h3.panel-title{
+    font-weight: bold;
+    font-family: arial;
+    text-transform: uppercase;
+}
+
+.nav-pills>li >a{
+    color: #fff;
+    background-color: #fda128;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #2196F3;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    color: #fff;
+    background-color: #2196F3;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    border-radius: 0px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+
+/*.dashboardPanel{
+    width:300px;
+    padding-top:20px; 
+    min-height: 100%;
+    height: auto;
+    background-color: rgba(41, 39, 39, 1);
+    padding-right: 0px; 
+     padding-left: 0px; 
+     z-index: 2;
+     position: fixed;
+}*/
+
+/*.dashboardPanel{
+   width:300px;
+   padding-top:20px; 
+   min-height: 100vh;
+   height: auto;
+   background-color: rgba(41, 39, 39, 1);
+   padding-right: 0px; 
+    padding-left: 0px; 
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    overflow-y:auto;
+}*/
+
+.dashboardPanel{
+    width:300px;
+    padding-top:20px; 
+    max-height: 100vh;
+    height: 100vh;
+    background-color: rgba(41, 39, 39, 1);
+    padding-right: 0px; 
+     padding-left: 0px; 
+     z-index: 2;
+     position: fixed;
+     overflow: auto;
+}
+.dashboardPanelInner{
+    width:300px;
+    height: auto;
+    min-height: 100%;
+    padding-right: 0px; 
+    padding-left: 0px; 
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    overflow-y:auto;
+    padding-bottom:80px;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+   width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(41, 39, 39,0.3); 
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+   background: rgba(41, 39, 39,0.8); 
+   -webkit-box-shadow: inset 0 0 6px rgba(41, 39, 39,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+   background: rgba(41, 39, 39,0.4); 
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #000;
+}
+.mainOptions{
+    padding-top:20px;
+    padding-bottom:20px;
+    position: absolute;
+    width:100%;
+    padding-left: 330px;
+    background-color: rgba(41, 39, 39, 1);
+    z-index: 2;
+    position: fixed;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #1f1f1f;
+}
+.table>thead>tr>.active, .table>tbody>tr>.active, .table>tfoot>tr>.active, .table>thead>.active>td, .table>tbody>.active>td, .table>tfoot>.active>td, .table>thead>.active>th, .table>tbody>.active>th, .table>tfoot>.active>th {
+    background-color: #111111;
+}
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+    background-color: #000000;
+}
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #303030;
+}
+.formWrapper{
+    position: fixed;
+    top:230px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    width: 500px;
+    margin: 0px auto;
+    display: none;
+}
+.installPackage{
+    display: block;
+}
+.formInner{
+    width: 282px;
+    margin: 0 auto;
+}
+.formHeader{
+    color: #323232;
+    font-size: 33px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 33px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.fortagline{
+    color: #323232;
+    font-size: 16px;
+    text-align: left;
+    line-height: 20px;
+    margin-top:5px;
+
+    white-space: nowrap;
+}
+.formBody{
+    text-align: left;
+    color: #646464;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.formLabel{
+    width:100%;
+    margin-bottom:5px;
+}
+.formInput input{
+    width:100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 1px;
+    padding: 8px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #323232;
+    margin-bottom:5px;
+}
+.formInput input:hover{
+    border: 1px solid #969696;
+}
+.wififormInput input{
+    width:100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 1px;
+    padding: 8px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #ffffff;
+    margin-bottom:5px;
+}
+.wififormInput input:hover{
+    border: 1px solid #969696;
+}
+#wifiNetwork{
+   position: relative;
+   cursor: pointer;
+}
+
+#selectRetailer{
+    width:100%;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 1px;
+    padding: 8px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #323232;
+    margin-bottom:5px;
+    -webkit-appearance: none;
+   position: relative;
+   background-image: url(../assets/arrow.png);
+   background-repeat: no-repeat;
+   background-position: right center;
+}
+#selectRetailer:hover{
+    border: 1px solid #969696;
+}
+ul.tagit{
+    width:100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 1px;
+    padding: 8px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #323232;
+    margin-bottom:5px;
+}
+#submitBtn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    width: 150px !important;
+    margin-left: 5px;
+}
+#submitBtn:active{
+    background-color: #2196f3;
+}
+#registerBtn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    width: 150px !important;
+    /*margin-left: 5px;	*/
+    outline: none !important;
+}
+#registerBtn:active{
+    background-color: #2196f3;
+}
+.table-hover>tbody>tr>.active:hover, .table-hover>tbody>.active:hover>td, .table-hover>tbody>.active:hover>th {
+    background-color: #000000;
+}
+
+    
+.progress_state{
+    display: none;
+    color: #323232;
+    font-size: 14px;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 34px;
+    margin-left: 0px;
+    visibility: visible;
+}
+#progressText{
+    display: inline-block;
+}
+.dots{
+    display: inline-block;
+    visibility: hidden;
+}
+#portrait{
+    margin-left:10px;
+}
+ 
+.loginFormWrapper{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0;
+    padding-top:155px;
+    display: none;
+    /*overflow-y:auto;*/
+}   
+.loginFormInner{
+    position: fixed;
+    top: 230px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    width: 500px;
+    margin: 0px auto;
+    background-color: #f5f5f5;
+}
+.loginFormInnerHolder {
+    width: 282px;
+    margin: 0 auto;
+}
+.closeButton{
+    position: fixed;
+    top:175px;
+    left: 320px;
+    cursor: pointer;
+}
+
+#onlineRegister{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /*border-radius: 4px;*/
+    background-color: #404040;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    float: right;
+    /*text-transform: uppercase;*/
+    outline: none
+}
+#onlineRegister:hover{
+    background-color: #383838;
+}
+.uploadJson{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /*border-radius: 4px;*/
+    background-color: #fda128;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    margin-right:10px;
+    visibility: visible;
+    width: 134px !important;
+    /*text-transform: uppercase;*/
+}
+.uploadJson:hover{
+    background-color: #fda128;
+}
+.uploadJson img{
+    vertical-align: top;
+}
+.uploadJson span{
+    margin-left:5px;
+    position: relative;
+    /*top: 2px;*/
+}
+.uploadJson:active{
+    background-color: #2196f3;
+}
+.defButton{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /*border-radius: 4px;*/
+    background-color: #fda128;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    margin-right:10px;
+    visibility: visible;
+    min-width: 134px !important;
+}
+
+.defButton:hover{
+    background-color: #fda128;
+}
+
+.defButton img{
+    vertical-align: top;
+}
+.defButton span{
+    margin-left:5px;
+    position: relative;
+    /*top: 2px;*/
+}
+.cloneButton{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /*border-radius: 4px;*/
+    background-color: #fda128;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    visibility: visible;
+    width: 134px !important;
+    /*text-transform: uppercase;*/
+}
+.cloneButton:hover{
+    background-color: #fda128;
+}
+.cloneButton img{
+    vertical-align: top;
+}
+.cloneButton span{
+    margin-left:5px;
+    position: relative;
+    /*top: 2px;*/
+}
+#loginBtn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    width: 134px !important;
+    outline: none !important;
+}
+#loginBtn:active{
+    background-color: #2196f3;
+}
+
+#wifiConnectBtn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    width: 134px !important;
+    outline: none !important;
+}
+#wifiConnectBtn:active{
+    background-color: #2196f3;
+}
+
+.editProfileinner{
+    position: absolute;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /*width: 500px;*/
+    width: 100%;
+    margin: 0px auto;
+    visibility: visible;
+    background-color: #f5f5f5;
+}
+.editProfileinnerHolder {
+    width: 282px;
+    margin: 0 auto;
+}
+.editButton{
+    color: #646464;
+    height: 35px;
+    width:35px;
+    position: fixed;
+    top:20px;
+    right: 18px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    text-transform: uppercase;
+    background-image: url(../assets/edit.png);      
+    background-size: contain;       
+    -webkit-background-size: contain;       
+    -moz-background-size: contain;      
+    background-repeat: no-repeat;       
+    background-position: center;
+}
+.editButton span{
+    margin-right: 5px;
+}
+.editButton img{
+    max-width: 35px;
+    vertical-align: bottom;
+}
+.editButton_selected{
+    background-image: url(../assets/edit_selected.png); 
+}
+
+.bottomButtonsHolder{
+    width:100%;
+    margin-top: 30px;
+    padding-top: 5px;
+    border-top:1px solid #cccccc;
+}
+.buttonSelected{
+    background-color: #2196F3;
+    border: 1px solid transparent;
+    outline: none;
+    outline: none !important;
+}
+
+.buttonSelectednone{
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+    border-radius: 0px;
+    outline: none !important;
+}
+.buttonSelectednone:hover, .buttonSelectednone:focus, .buttonSelectednone:active, .buttonSelectednone.active, .open .dropdown-toggle.buttonSelectednone {
+    color: #fff;
+    background-color: #fda128;
+    border-color: #fda128;
+}
+
+.loader {
+  display: none;
+  margin-left: 8px;
+  vertical-align: middle;
+  border: 4px solid #ddd;
+  border-radius: 50%;
+  border-top: 4px solid #fda128;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.ui-autocomplete {
+    background: #fff;
+    border-radius: 0px;
+    width: 282px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 20px;
+    position: relative;
+}
+.ui-autocomplete.source:hover {
+    background-color: #fda128;
+}
+
+.ui-menu .ui-menu-item a{
+    background-color:#ffffff;
+    border:none;
+    outline: none;
+    border-radius: 0px;
+    padding: 2px .4em;
+    line-height: 1.5;
+    color: #323232;
+}
+.ui-menu .ui-menu-item a:hover{
+    color:#fff;
+    background-color: #fda128;
+    border:none;
+    outline: none;
+    border-radius: 0px;
+    padding: 2px .4em;
+    line-height: 1.5;
+}
+    /*position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;*/
+    
+    
+    
+    
+    /*Settings UI*/
+
+.deviceSettingsDetailWrapper{
+    width:100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 0;
+    display: none;
+}
+.settingsForm{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0;
+    padding-top: 155px;
+}
+.settingsPanelHolder{
+    position: absolute;
+    padding-bottom: 75px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    /* width: 500px; */
+    width: 100%;
+    margin: 0px auto;
+    visibility: visible;
+    background-color: #f5f5f5;
+}
+.settingsPanelInner{
+    width: 450px;
+    margin: 0 auto;
+}
+.deviceStateMessage{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #373737;
+    text-transform: uppercase;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px 40px;
+    /*margin-bottom: 20px;*/
+}
+.settingPanelFormWrapper{
+    /*visibility: hidden;*/
+    width: 282px;
+    display: none;
+    margin-top: 20px;
+}
+.settingsformBody{
+    text-align: left;
+    color: #646464;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.settingsfieldsWrapper{
+    width:420px;
+    height: auto;
+    white-space: nowrap;
+
+}
+.settingsFieldsBlock{
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    /*border-bottom:1px solid #dedede;*/
+}
+.noBorder{
+    border:none;
+}
+/*.settingsFieldsBlock:last-Child{
+    border-bottom: none;
+}*/
+.editSettingsBlock{
+    width: 100%;
+    height: 40px;
+    vertical-align: middle;
+}
+.editLable{
+    float: left;
+}
+.switchHolder{
+    float: right;
+}
+.subsettingsHeader{
+    width:100%;
+    font-weight: bold;
+    color: #323232;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.playtime_msg {
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+.timeWrapper{
+    width:100%;
+    text-align: center;
+}
+.timeHolder{
+    text-align: left;
+    display: inline-block;
+    width: 120px;
+    margin:0px 5px;
+}
+.timeLable{
+    width: 100%;
+}
+.timeInput{
+    width: 100%;
+}
+.timeInput input{
+    width: 100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 1px;
+    padding: 4px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #323232;
+}
+#timeSetting{
+    display: none;
+}
+.dateSelector{
+    text-align: center;
+}
+.play_date_time{
+    width:50px;
+    height: 26px;
+    display: inline-block;
+    background-color: #dcdcdc;
+    color: #999999;
+    line-height: 26px;
+    margin:20px 2px;
+    cursor: pointer;
+}
+.play_date_timeSelected{
+    background-color: #fda128;
+    color: #ffffff;
+}
+
+.editSettingsButton {
+    color: #646464;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    top: 170px;
+    right: 18px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    text-transform: uppercase;
+    z-index: 1;
+     background-image: url(../assets/edit.png);		
+    background-size: contain;		
+    -webkit-background-size: contain;		
+    -moz-background-size: contain;		
+    background-repeat: no-repeat;		
+    background-position: center;
+}
+.editSettingsButton img{
+    max-width:100%;
+}
+
+#editSettings{		
+    display: block;		
+}		
+.editSettings_selected{		
+    background-image: url(../assets/edit_selected.png);		
+}
+.backButton {
+    color: #646464;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    top: 170px;
+    left: 320px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    text-transform: uppercase;
+    z-index: 1;
+     background-image: url(../assets/back.png);     
+    background-size: contain;       
+    -webkit-background-size: contain;       
+    -moz-background-size: contain;      
+    background-repeat: no-repeat;       
+    background-position: center;
+    display: none;
+}
+/*Switch UI Begin*/
+.onoffswitch {
+    position: relative; width: 64px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    opacity: 0.5;
+}
+.onoffswitch_rsp{
+   position: relative; width: 64px;
+   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+   opacity: 0.5;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 1px solid #c8c8c8; border-radius: 0px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 8px;
+    background-color: #fda128; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 5px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 30px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 34px;
+    border: 1px solid #c8c8c8; border-radius: 0px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+.changeLocatorWrapper{		
+    width:100%;		
+    height: auto;		
+    position: relative;		
+    width: 420px;		
+    margin-bottom: 20px;		
+    margin-top: 30px;		
+    padding-top: 20px;		
+    border-top: 1px solid #cccccc;		
+}		
+.changeLocatorSwitch{		
+    /*height: 35px;*/		
+    min-width: 35px;		
+    width: auto;		
+    background-color: #f5f5f5;		
+    position: relative;		
+    top:0px;		
+    left: 0;		
+    /*padding-top: 20px;		
+    padding-bottom: 20px;*/		
+}		
+.changeLocatorSwitchButton{		
+    width:35px;		
+    /*height:35px;*/		
+    background-color: #fff;		
+    float: left;		
+}		
+.changeLocatorSwitchText{		
+    /*line-height: 35px;*/		
+    font-weight: bold;		
+    padding-right: 15px;		
+    padding-left:0px;		
+    float: left;		
+    color: #323232;		
+    text-transform: uppercase;		
+}		
+.changeLocatorFormHolder{		
+    width:282px;		
+    height: auto;		
+    margin-top: 30px;		
+}		
+#locatorUpdateBtn{		
+    display: inline-block;		
+    padding: 6px 12px;		
+    margin-bottom: 0;		
+    font-size: 14px;		
+    font-weight: normal;		
+    line-height: 1.428571429;		
+    text-align: center;		
+    white-space: nowrap;		
+    vertical-align: middle;		
+    cursor: pointer;		
+    background-image: none;		
+    border: 1px solid transparent;		
+    -webkit-user-select: none;		
+    -moz-user-select: none;		
+    -ms-user-select: none;		
+    -o-user-select: none;		
+    user-select: none;		
+    color: #fff;		
+    background-color: #fda128;		
+    border-color: #fda128;		
+    width: 150px !important;		
+    /*margin-left: 5px;  */ 		
+    outline: none !important;		
+}		
+#locatorUpdateBtn:active{		
+    background-color: #2196f3;		
+}
+#wifiButton{        
+    display: inline-block;      
+    padding: 6px 12px;      
+    margin-bottom: 0;       
+    font-size: 14px;        
+    font-weight: normal;        
+    line-height: 1.428571429;       
+    text-align: center;     
+    white-space: nowrap;        
+    vertical-align: middle;     
+    cursor: pointer;        
+    background-image: none;     
+    border: 1px solid transparent;      
+    -webkit-user-select: none;      
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    -o-user-select: none;       
+    user-select: none;      
+    color: #fff;        
+    background-color: #fda128;      
+    border-color: #fda128;      
+    width: 120px !important;        
+    /*margin-left: 5px;  */         
+    outline: none !important;       
+}       
+#wifiButton:active{       
+    background-color: #2196f3;  
+    border-color: #2196f3;     
+}
+
+.wifiloader {
+  display: none;
+  margin-left: 8px;
+  vertical-align: middle;
+  border: 4px solid #ddd;
+  border-radius: 50%;
+  border-top: 4px solid #fda128;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.formwifiInput input{
+    width:100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 1px;
+    padding: 8px 8px;
+    margin-left: 0px;
+    outline: none;
+    overflow: hidden;
+    background-color: #111111;
+    border: 1px solid #111111;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    color: #ffffff;
+    margin-bottom:5px;
+}
+.formwifiInput input:hover{
+    border: 1px solid #000000;
+}
+/*Switch UI*/
+.nav li.deviceList_selected a{
+	color: #fff;
+	background-color: #2196F3;
+}
+
+.profileInfo{		
+    width:100%;		
+    height:500px;
+    display:none;
+    margin-top: 20px;
+}		
+.profileLabel{		
+    height: 30px;		
+    line-height: 1.2;		
+    color: #646464;		
+}
+.profileLabel span{
+	color: #959595;
+}
+
+.deviceStateLoader {
+    display: none;
+   vertical-align: middle;
+   border: 4px solid #ddd;
+   border-radius: 50%;
+   border-top: 4px solid #fda128;
+   width: 25px;
+   height: 25px;
+   /*z-index:1;*/
+   -webkit-animation: spin 1s linear infinite;
+   animation: spin 1s linear infinite;
+   /*margin: 0 auto;*/
+   position: fixed;
+   /* display: inline-block; */
+   top: 300px;
+   left: 50%; 
+   transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+   -ms-transform: translate(-50%, 0);
+}
+.deviceStateLoaderShow{
+    display: block;
+}
+.defButton:active{
+    background-color: #2196f3;
+}
+
+.wifiConnection{
+    background-color: #f5f5f5;
+    height: 400px;
+}
+
+/*Playlist*/
+
+.playlistWrapper{
+    width:100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 0;
+    /*display: none;*/
+    top: auto;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+}
+.playlistWrapperInner{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0;
+    padding-top: 155px;
+}
+.playlistHolder{
+    position: absolute;
+    padding-bottom: 75px;
+    padding-left: 380px;
+    left: 0;
+    
+    /* width: 500px; */
+    width: 100%;
+    margin: 0px auto;
+    visibility: visible;
+    background-color: #f5f5f5;
+}
+.playlistHolderInner{
+    width: 600px;
+    height: auto;
+    /*margin: 0 auto;*/
+    position: relative;
+}
+.listcampaign{
+    width:100%;
+    height: 120px;
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+}
+.listcampaign_selected{
+	background-color: #e8e8e8;
+}
+.listcampaign:active .campaignName{
+    color: #fda128;
+}
+.listcampaign:active .campaignImage{
+    border: 2px solid #fda128;
+}
+.campaignImage{
+    width:80px;
+    height: 80px;
+    position: relative;
+    float: left;
+    background-color: #000000;
+    border-radius: 100%;
+    -webkit-border-radius:100%;
+    -moz-border-radius:100%;
+    top:50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    overflow:hidden;
+    text-align:center;
+    line-height:80px;
+}
+.campaignImage img{
+	width:100%;
+	vertical-align:middle;
+	margin-top: -2px;
+
+}
+.campaignDetails{
+    position: relative;
+    float: left;
+    margin-left: 35px;
+    top:50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+}
+.campaignName{
+    font-size: 14px;
+    font-weight: bold;
+    color: #646464;
+}
+.campaignId{
+    font-size: 14px;
+    font-weight: normal;
+    color: #646464;
+}
+.campaignModifiedDate{
+    font-size: 12px;
+    font-weight: normal;
+    color: #959595;
+}
+.sentMessage{
+    float: right;
+    padding-right: 30px;
+    top:50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    position: relative;
+    color: #fda128;
+}
+
+#wifiNetwork:after{
+   content: "";
+   position: absolute;
+   width: 0;
+   height: 0;
+   right: 10px;
+   top:50%;
+   transform: translate(0,-50%);
+   -webkit-transform: translate(0,-50%);
+   -ms-transform: translate(0,-50%);
+   border-style: solid;
+   border-width: 7px 0 7px 7px;
+   border-color: transparent transparent transparent #ffffff;
+}
+.formInnerApps{
+    width:100%;
+}
+.applicationHolderWrapper{
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+}
+.applicationHolder{
+    height:68px;
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+    line-height: 68px;
+    position: relative;
+}
+.applicationHolder:last-Child{
+    border: none;
+}
+.appIconHolder{
+    height: 68px;
+    display: inline-block;
+    opacity: 0.4;
+}
+.appIcon{
+    width:48px;
+    height: 48px;
+    position: relative;
+    top: 10px;
+    float: left;
+    /*display: inline-block;*/
+}
+.appIcon img{
+    max-width: 100%;
+    vertical-align: top;
+}
+
+.appName{
+    vertical-align: middle;
+    /*display: inline-block;*/
+    line-height: 68px;
+    float: left;
+    margin-left: 15px;
+}
+.appInstallButton{
+    float: right;
+    top:17px;
+    background-color: #959595;
+    position: relative;
+    margin-right: 0px;
+    padding: 6px 6px;
+    min-width: 100px !important;
+}
+.appInstallButton:active,.appInstallButton:hover{
+    background-color: #fda128;
+}
+.appInstalled{
+    background:none;
+    border:none;
+    pointer-events:none;
+    color: #646464;
+    opacity: 0.5;
+    /*min-width: 100px !important;*/
+}
+.checkBoxHolder{
+   width:85px;
+   height:68px;
+   float: right;
+   line-height: 68px;
+   text-align: center;
+}
+
+.installedLabel{
+    display:none;
+    text-align:left;
+    white-space:nowrap;
+    line-height:68px;
+}
+.installedLabelText{
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    /*margin-right: 10px;*/
+}
+.appUninstall{
+    width:20px;
+    height:20px;
+    /*background-color: #000;*/
+    display: none;
+    cursor: pointer;
+    position: relative;
+    line-height: normal;
+    vertical-align: middle;
+    margin-left: 10px;
+    top: 0px;
+    /*transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);*/
+    background-image: url(../assets/trash.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+.appUninstall{
+    display: inline-block;
+}
+.uninstallCheckBoxes{
+    position: relative;
+    margin-left: 10px;
+    width: 18px;
+}
+.uninstallCheckBoxes label {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fcfff4;
+  border-radius: 100%;
+  border: 2px solid #f44336;
+}
+.uninstallCheckBoxes label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 2px;
+  left:2px;
+  /*border: 3px solid #333;*/
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  background-image: url(../assets/delete.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+  /*-webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);*/
+}
+/*.uninstallCheckBoxes label:hover::after {
+  opacity: 0;
+}*/
+.uninstallCheckBoxes input[type=checkbox] {
+  visibility: hidden;
+}
+.uninstallCheckBoxes input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+#appUninstallBtn{
+    margin-left: 10px;
+    background-color: #cccccc;
+}
+#appUninstallBtn:active,#appUninstallBtn:hover{
+    background-color: #fda128;
+}
+.installCheckstyle{
+    position: relative;
+    left: 30px;
+}
+.inactiveClass{
+    opacity: 0.4;
+}
+
+
+.installCheckBoxHolder{
+    position: relative;
+    margin-left: 54px;
+    width: 18px;
+}
+.installCheckBoxHolder label {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fcfff4;
+  border-radius: 100%;
+  border: 2px solid #646464;
+}
+.installCheckBoxHolder label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 2px;
+  left:2px;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  background-image: url(../assets/checked.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+}
+.installCheckBoxHolder input[type=checkbox] {
+  visibility: hidden;
+}
+.installCheckBoxHolder input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
