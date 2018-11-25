@@ -1,0 +1,723 @@
+<!doctype html>
+<html ng-app="chromeADB" ng-csp>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeployTool">
+    <meta name="author" content="multplx">
+
+    <title>DeployTool</title>
+    
+	<!--<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> 
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="scripts/md5.js" type="text/javascript"></script>-->
+ 
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="styles/chromeadb.css" rel="stylesheet">
+    <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+	<link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+    <link href="css/toast.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"> 
+    <link href="css/jquery.ptTimeSelect.css" rel="stylesheet" type="text/css"> 
+    <link href="css/timer_ui.css" rel="stylesheet" type="text/css">
+    
+   
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container headerWrapper">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="logoWrapper" id= "refreshButton"><img src="assets/myplayerLogo.png"/></span><span class="logoText">MY PLAYER DEPLOY</span>
+            </a>
+        </div>
+        <div>
+            <form class="navbar-form navbar-right">
+            </form>
+        </div>
+    </div>
+</div>
+<!--end div.navbar-->
+
+<div class="container containerCustomized">
+    <div class="row">
+    <div class="deviceStateLoader"></div>
+        <!--right contents-->
+        <div class="col-md-9 mainOptions">
+            <button class="btn btn-primary install-package-button menuButtons buttonSelected" id="installPackage">
+                Install Package
+            </button>
+            <button class="btn btn-primary register-package-button menuButtons" id="registerButton">
+                Register
+            </button>
+            <button class="btn btn-primary sideload-package-button menuButtons" id="sideloadButton">
+                Sideload
+            </button>
+            <button class="btn btn-primary sideload-package-button menuButtons" id="applicationsButton">
+                Applications
+            </button>
+<!-- 
+            <button class="btn btn-primary sideload-package-button menuButtons" id="playlistButton">
+                Playlist
+            </button>
+ -->
+            
+        </div>
+        <!--left side menu-->
+<div class="col-md-3 dashboardPanel">
+  <div class="dashboardPanelInner">
+           <div class="panel panel-primary">
+               <div class="panel-heading">
+                   <h3 class="panel-title">
+                       Device List <span id = "deviceCount" class="badge pull-right"></span>
+                   </h3>
+               </div>
+               <div class="panel-body">
+                   <ul class="nav nav-pills nav-stacked" id="connectedDeviceList">
+<!--                        <li class="">
+                           <a href="#">
+                               
+                               <small></small>
+                           </a>
+                       </li>  -->
+                   </ul>
+               </div>
+           </div>
+
+           <hr/>
+
+           <div class="panel panel-primary">
+               <div class="panel-heading">Device Info</div>
+
+               <div class="panel-body" ng-show="devInfo">
+                   <table class="table table-condensed table-hover">
+                       <thead>
+                       <tr class="active">
+                           <th style="width: 40%"></th>
+                           <th>INFO</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td class="active text-center">DEVICE ID</td>
+                           <td id = "devId" class="text-center"></td>
+                       </tr>
+                       <tr>
+                           <td class="active text-center">TYPE</td>
+                           <td id = "devType" class="text-center"></td>
+                       </tr>
+                        <tr>
+                           <td class="active text-center">NETWORK</td>
+                           <td id = "wifiNetwork" class="text-center"></td>
+                       </tr>
+                    	<tr>
+                           <td class="active text-center">MyPLAYER</td>
+                           <td id = "myPlayerVersion" class="text-center"></td>
+                       </tr>
+                       
+                       <!--<tr>
+                           <td class="active text-center">DEVICE</td>
+                           <td class="text-center">{{ devInfo.device }}</td>
+                       </tr> -->
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+
+           <hr/>
+           
+                      
+           <!-- 
+                     <div class="panel panel-primary">
+               <div class="panel-heading">
+                   <h3 class="panel-title">
+                       Connect to Wifi <span id = "wifi" class="badge pull-right"></span>
+                   </h3>
+               </div>
+           
+                          <div class="panel-body">
+                   <ul class="nav nav-pills nav-stacked" id="connectedDeviceList">
+               <form id ="wifiForm" name = "form" action="form_action.asp">
+                        <div class="formLabel">Wifi Network:</div>
+                        <div class="formwifiInput"><input type="text" id = "wifiId" name="wifiname" value=""></div>
+                      
+                        <div class="formLabel">Password:</div>
+                        <div class="formwifiInput"><input type="password" id = "wifiPassword" name="wifiPassword"></div>
+                        <input type="checkbox" onchange="document.getElementById('wifiPassword').type = this.checked ? 'text' : 'password'"> Show password
+                        <br>
+                        <br>
+                       <input type="button" id="wifiButton" value="Connect"><div class="wifiloader"></div>
+				</form> 
+                   </ul>
+               </div>
+           </div>
+
+           <hr/> -->
+           
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                   <h3 class="panel-title">
+                       Perform State <span id = "state" class="badge pull-right"></span>
+                   </h3>
+               </div>
+                <div class="panel-body">
+                <div class="nav nav-pills nav-stacked" id="complete_state"></div>
+   
+               </div>
+           </div>
+           
+          <hr/> 
+           
+           
+       </div>
+     </div>
+        
+        
+        <div class="formWrapper installPackage">
+            <div class="formInner">
+                 <div class="formHeader">Install Package</div>
+                 <div class="fortagline">Browse the apk file to install.</div>
+                <div class="formBody">
+                    <div id = "installApkButton" class="defButton installPackageButton">Browse Package</div>
+                </div>  
+  <!--               <div class="progress_state progress_state_1"><div class="progressText" id="progressText">Installing</div><div class="dots"><img src="assets/dots.gif" /></div></div> -->
+   				<div id="toastMsg5" class=""></div>
+            </div>
+        </div>
+        <div class="formWrapper registerButton">
+            <div class="formInner">
+                 <div class="formHeader">SIGN IN</div>
+                 <div class="fortagline">Sign in the account wish to register.</div>
+                <div class="formBody">
+                    <form id ="form" name = "form" action="form_action.asp">
+                        <div class="formLabel">Contact Email:</div>
+                        <div class="formInput"><input type="text" id = "lemail" name="login_email" value=""></div>
+                      
+                        <div class="formLabel">Pin Code:</div>
+                        <div class="formInput"><input type="password" id = "lpin" name="login_pin"></div>
+                        <br >
+                       <input type="button" id="loginBtn" value="Sign in" ng-click="login();"><div class="loader"></div>
+                       <div class="bottomButtonsHolder">
+                        <div class="fortagline">Upload your registration JSON file.</div>
+                        <div class="formBody">
+                            
+                            <div id ="uploadJsonButton" class="uploadJson" ng-click="jsonRead();"><span>Browse json</span></div>
+                            <!-- <div class="cloneButton" ng-click=""><span>Clone</span></div> -->
+                        </div>
+                       </div>
+                       <div id="toastMsg" class=""></div>
+                    </form>
+                </div>  
+
+            </div>
+        </div>
+
+        <div class="formWrapper wifiConnection">
+            <div class="formInner">
+                 <div class="formHeader">WIFI NETWORK</div>
+                 <div class="fortagline">Connect to the wifi.</div>
+                <div class="formBody">
+                    <form id ="wifiForm" name = "form" action="form_action.asp">
+                        <div class="formLabel">Wifi Network:</div>
+                        <div class="formInput"><input type="text" id = "wifiId" name="wifiname" value=""></div>
+                      
+                        <div class="formLabel">Password:</div>
+                        <div class="formInput"><input type="password" id = "wifiPassword" name="wifiPassword"></div>
+                        <input type="checkbox" onchange="document.getElementById('wifiPassword').type = this.checked ? 'text' : 'password'"> Show password
+                        <br >
+                        <br >
+                       <input type="button" id="wifiButton" value="Connect"><div class="wifiloader"></div>
+                       
+                       <!-- <div id="toastMsg" class=""></div> -->
+                    </form>
+                </div>  
+
+            </div>
+        </div>
+
+
+        <div class="formWrapper sideloadButton">
+            <div class="formInner">
+                 <div class="formHeader">Sideload</div>
+                 <div class="fortagline">Browse a campaign zip file to sideload.</div>
+                <div class="formBody">
+                    <div id ="browseForZipButton" class="defButton installPackageButton" ng-click="chooseFileToSideLoad();">Browse Campaign</div>
+                </div>  
+<!--                 <div class="progress_state progress_state_2"><div class="progressText" id ="progressText">Sideloading</div><div class="dots"><img src="assets/dots.gif" /></div></div> -->
+				<div id="toastMsg6" class=""></div>
+            </div>
+        </div>
+
+        <div class="formWrapper applicationsButton">
+            <div class="formInner formInnerApps">
+                 <div class="formHeader">APPLICATIONS</div>
+                 <div class="fortagline"></div>
+			<div class="formBody">
+        		<div class="applicationHolderWrapper" id = "applicationHolderWrapper" >
+                     
+        		</div>
+            <div class="appInstallButton defButton" id="appUninstallBtn">Uninstall</div>
+    			 <div class="appInstallButton defButton" id="appInstallBtn">Install</div>
+
+    			<div id="toastMsgInstall" class=""></div>
+    		</div>
+            </div>
+        </div>
+
+        <div class="loginFormWrapper">
+            <div class="editProfileinner">
+                <div class="editButton" id="editText" title="Edit"><!-- <img src="assets/edit.png"/> --></div>
+                <div class="loginFormInnerHolder">
+
+                    <div class="formHeader">Register</div>
+                    <div class="formBody">
+                        <form id ="form" name = "form" action="form_action.asp">
+                        
+                            <div class="formLabel">Contact Email:</div>
+                            <div class="formInput"><input type="text" id = "pp_email" name="login_email" value=""></div>
+                            
+                            <!-- <div class="formLabel">Password:</div>
+                        	<div class="formInput"><input type="password" id = "pp_pswd" name="password"></div> -->
+                        	
+                        	<div class="formLabel">Device Name:</div>
+                            <div class="formInput"><input type="text" id = "pp_device" name="deviceName"></div>
+                          
+                            <div class="formLabel">Retailer Name:</div>
+                            <!-- <div class="formInput"><input type="text" id = "pp_retailer" name="retailerName"></div> -->
+                            <!-- <select id="selectRetailer"><option></option></select> -->
+                            <div class="formInput"><input type="text" id = "pp_retailer" name="retailerName"></div>
+
+                            <div class="formLabel">Store Name:</div>
+                            <div class="formInput"><input type="text" id = "pp_storeName" name="storeName"></div>
+                            
+                            <div class="formLabel">Display Country Name:</div>
+                            <div class="formInput"><input type="text" id = "pp_country" name="country"></div>
+
+                            <div class="formLabel">Country:</div>
+                            <div class="formInput"><input type="text" id = "pp_country_name" name="country"></div>
+
+                            <div class="formLabel">Post Code:</div>
+                            <div class="formInput"><input type="text" id = "pp_zipcode" name="zipcode"></div>
+                            
+                            <div class="formLabel">Tags:</div>
+                        	<ul id="regisTags"></ul>
+                            
+                            <div class="formLabel">Mode:</div>
+                            <input type="radio" class = "radioBut" id = "land" name="pp_portrait" value="false" checked> Landscape
+                            <input type="radio" class = "radioBut" id = "port" name="pp_portrait" value="true"> Portrait <br>
+                            <br >
+                            
+                            <div class="registerSettingsPanel">
+                              <div class="formHeader" style="margin-bottom: 20px;margin-top: 30px;padding-top: 20px;border-top: 1px solid #cccccc; width:420px;">Settings</div>
+                                    <div class="settingsfieldsWrapper">
+                                        <div class="settingsFieldsBlock">
+                                            <div class="editSettingsBlock">
+                                                <div class="editLable">Wifi Lock :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_wifiLock">
+                                                        <label class="onoffswitch-label" for="rg_wifiLock">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock">
+                                                <div class="editLable">Lock Screen :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_lockScreen">
+                                                        <label class="onoffswitch-label" for="rg_lockScreen">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="settingsFieldsBlock">
+                                            <div class="subsettingsHeader">Media</div>
+                                            <div class="editSettingsBlock" id="rg_editSettingsBlock_play" >
+                                                <div class="editLable">Play :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_playMedia" >
+                                                        <label class="onoffswitch-label" for="rg_playMedia">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="rg_editSettingsBlock_powersave">
+                                                <div class="editLable">Power Save :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_powerServer" >
+                                                        <label class="onoffswitch-label" for="rg_powerServer">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="rg_editSettingsBlock_watchdog">
+                                                <div class="editLable">Watchdog :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_watchdog" >
+                                                        <label class="onoffswitch-label" for="rg_watchdog">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="rg_editSettingsBlock_twentyfourseven">
+                                                <div class="editLable">24/7 :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch_rsp">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="rg_twentyFourSeven" checked>
+                                                        <label class="onoffswitch-label" for="rg_twentyFourSeven" id="rg_twentyFourSevenlb">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id ="testDiv">
+                                        <div class="settingsFieldsBlock noBorder" id = "rg_settingsFieldsBlockMsg">
+                                            <div class="playtime_msg" id="rg_editsettings_pt_message">Your Kiosk is set to play 24 hours.Please turn off 24/7 to customize.</div>
+                                            <div class="playtime_msg" id="rg_editsettings_devicetime" style="padding-bottom: 10px; padding-top: 5px; display: block;"></div>
+                                        </div>
+                                        <div class="settingsFieldsBlock" id="rg_timeSetting">
+                                            <div class="timeWrapper">
+                                                <div class="timeHolder"><div class="timeLable">From :</div><div class="timeInput"><input type="text" name="to" id="rg_settings_timefrom" class="timer_input" /></div></div>
+                                                <div class="timeHolder"><div class="timeLable">To :</div><div class="timeInput"><input type="text" name="to" id="rg_settings_timeto" class="timer_input"/></div>
+                                                </div>
+                                            </div>
+                                            <div class="dateSelector">
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_mon">
+                                                MON
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_tue">
+                                                TUE
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_wed">
+                                                WED
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_thu">
+                                                THU
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_fri">
+                                                FRI
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_sat">
+                                                SAT
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="rg_ply_sun">
+                                                SUN
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <br >
+
+                            </div>
+
+                            
+                           <input type="button" id="registerBtn" value="Register">
+                           <div id="toastMsg1" class=""></div>
+                        
+                        </form>
+                    
+                    </div>
+                </div>
+            </div>
+             <!-- <div class="closeButton" ng-click=""><img src="assets/button_closed.png" width="30"/></div>  -->
+        </div>  
+        <div class="deviceSettingsDetailWrapper">
+            <div class="editSettingsButton" id="editSettings" title="Edit"></div>
+            <!--<div class="editSettingsButton" id="editSettingsShow" title="Edit"></div>-->
+            <!--<div class="backButton" id="backToState" title="Back"></div>-->
+            <div class="settingsForm">
+                <div class="settingsPanelHolder">
+                    <div class="settingsPanelInner">
+                        <div class="deviceStateMessage" id ="deviceStateMessagefield" ></div>
+                        <div class="toastMsg3" id ="toastMsg3" ></div>
+                        <div class="profileInfo">
+                          <div class="formHeader" style="margin-bottom: 20px;">Device State</div>
+                        <!--   <div class="profileLabel"><strong>Last Online : </strong><span id="lastOnline"></span></div>
+                          <div class="profileLabel"><strong>Time between signals : </strong><span id="timeBetweenSignals"></span></div> -->
+                          <div class="profileLabel"><strong>Date : </strong><span id="date"></span></div>
+                          <div class="profileLabel"><strong>Time : </strong><span id="time"></span></div>
+                          <div class="profileLabel"><strong>Time Zone : </strong><span id="timeZone">India Standard Time</span></div>
+                          <div class="profileLabel"><strong>Battery Level : </strong><span id="batterylevel"></span></div>
+                          <div class="profileLabel"><strong>Charging : </strong><span id="charging"></span></div>
+                          <div class="profileLabel"><strong>Temperature : </strong><span id="temperature"></span></div>
+                          <div class="profileLabel"><strong>Multplx Device Id : </strong><span id="imei"></span></div>
+                          <div class="profileLabel"><strong>IMEI Number : </strong><span id="imeiNumber"></span></div>
+    					  <div class="profileLabel"><strong>Mac : </strong><span id="mac"></span></div>
+                          <div class="profileLabel"><strong>Serial : </strong><span id="serial"></span></div>
+                          <div class="profileLabel"><strong>OS : </strong><span id="os"></span></div>
+                          <div class="profileLabel"><strong>platformVersion : </strong><span id="platformVersion"></span></div>
+                          <div class="profileLabel"><strong>Display size : </strong><span id="displaySize"></span></div>
+                          <div class="profileLabel"><strong>Device Model : </strong><span id="model"></span></div>
+                          <div class="profileLabel"><strong>Registered by : </strong><span id="registeredBy"></span></div> 
+                        </div>
+                        <div class="settingPanelFormWrapper">
+                            
+                            <div class="settingsformBody">
+                                <form id ="form" name = "form" action="form_action.asp">
+                                    <div class="formHeader" style="margin-bottom: 20px;">Profile</div>
+                                    <div class="formLabel">Contact Email:</div>
+                                    <div class="formInput"><input type="text" id = "sp_email" name="login_email" value=""></div>
+                                    
+                                    <div class="formLabel">Device Name:</div>
+                                    <div class="formInput"><input type="text" id = "sp_device" name="deviceName"></div>
+                                  
+                                    <div class="formLabel">Retailer Name:</div>
+                                    <div class="formInput"><input type="text" id = "sp_retailer" name="retailerName"></div>
+
+                                    <div class="formLabel">Store Name:</div>
+                                    <div class="formInput"><input type="text" id = "sp_storeName" name="storeName"></div>
+                                    
+                                    <div class="formLabel">Display Country Name:</div>
+                                    <div class="formInput"><input type="text" id = "sp_country" name="country"></div>
+
+                                    <div class="formLabel">Country:</div>
+                                    <div class="formInput"><input type="text" id = "sp_country_name" name="country"></div>
+
+                                    <div class="formLabel">Post Code:</div>
+                                    <div class="formInput"><input type="text" id = "sp_zipcode" name="zipcode"></div>
+                                    
+                                    <div class="formLabel">Tags:</div>
+                                    <ul id="profileTags"></ul>
+                                    
+                                    <div class="formLabel">Mode:</div>
+                                    <input type="radio" id = "sp_land" name="sp_portrait" value="false" checked> Landscape
+                                    <input type="radio" id = "sp_port" name="sp_portrait" value="true"> Portrait <br>
+                                    <br>
+                                    <div class="formHeader" style="margin-bottom: 20px;margin-top: 30px;padding-top: 20px;border-top: 1px solid #cccccc; width:420px;">Settings</div>
+                                    <div class="settingsfieldsWrapper">
+                                        <div class="settingsFieldsBlock">
+                                            <div class="editSettingsBlock">
+                                                <div class="editLable">Wifi Lock :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="wifiLock">
+                                                        <label class="onoffswitch-label" for="wifiLock">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock">
+                                                <div class="editLable">Lock Screen :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="lockScreen">
+                                                        <label class="onoffswitch-label" for="lockScreen">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="settingsFieldsBlock">
+                                            <div class="subsettingsHeader">Media</div>
+                                            <div class="editSettingsBlock" id="editSettingsBlock_play" >
+                                                <div class="editLable">Play :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="playMedia" >
+                                                        <label class="onoffswitch-label" for="playMedia">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="editSettingsBlock_powersave">
+                                                <div class="editLable">Power Save :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="powerServer" >
+                                                        <label class="onoffswitch-label" for="powerServer">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="editSettingsBlock_watchdog">
+                                                <div class="editLable">Watchdog :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="watchdog" >
+                                                        <label class="onoffswitch-label" for="watchdog">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editSettingsBlock" id="editSettingsBlock_twentyfourseven">
+                                                <div class="editLable">24/7 :</div>
+                                                <div class="switchHolder">
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="twentyFourSeven" checked>
+                                                        <label class="onoffswitch-label" for="twentyFourSeven" id="twentyFourSevenlb">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id ="testDiv">
+                                        <div class="settingsFieldsBlock noBorder" id = "settingsFieldsBlockMsg">
+                                            <div class="playtime_msg" id="editsettings_pt_message">Your Kiosk is set to play 24 hours.Please turn off 24/7 to customize.</div>
+                                            <div class="playtime_msg" id="editsettings_devicetime" style="padding-bottom: 10px; padding-top: 5px; display: block;"></div>
+                                        </div>
+                                        <div class="settingsFieldsBlock" id="timeSetting">
+                                            <div class="timeWrapper">
+                                                <div class="timeHolder"><div class="timeLable">From :</div><div class="timeInput"><input type="text" name="to" id="settings_timefrom" class="timer_input" /></div></div>
+                                                <div class="timeHolder"><div class="timeLable">To :</div><div class="timeInput"><input type="text" name="to" id="settings_timeto" class="timer_input"/></div>
+                                                </div>
+                                            </div>
+                                            <div class="dateSelector">
+                                                <div class="play_date_time play_date_timeSelected" id="ply_mon">
+                                                MON
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_tue">
+                                                TUE
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_wed">
+                                                WED
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_thu">
+                                                THU
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_fri">
+                                                FRI
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_sat">
+                                                SAT
+                                                </div>
+                                                <div class="play_date_time play_date_timeSelected" id="ply_sun">
+                                                SUN
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <br >
+                                   <input type="button" id="updateBtn" class="defButton" value="Update">
+                                   <div id="toastMsg2" class=""></div>
+                                
+                                </form>
+                                 <div class="changeLocatorWrapper" id ="changelocator">		
+                                  <div class="changeLocatorSwitch"><!-- <div class="changeLocatorSwitchButton"></div> --><div class="changeLocatorSwitchText">Change the locator</div></div>		
+                                  <div class="changeLocatorFormHolder">		
+                                    <form id ="locateForm" name = "locateForm" action="">		
+                                      <div class="formLabel">Retailer Name:</div>		
+                                      <div class="formInput"><input type="text" id = "rl_retailer" name="retailer" value=""></div>		
+                                      <div class="formLabel">Store Name:</div>		
+                                      <div class="formInput"><input type="text" id = "rl_store" name="store" value=""></div>		
+                                      <div class="formLabel">Post Code:</div>		
+                                      <div class="formInput"><input type="text" id = "rl_postcode" name="post" value=""></div>		
+                                      <br><br>		
+                                      <input type="button" id="locatorUpdateBtn" value="Relocate">
+                                      <div id="toastMsg4" class=""></div>		
+                                    </form>		
+                                  </div>		
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+
+        <div class="formWrapper playlistWrapper playlistButton">
+          <div class="playlistWrapperInner">
+
+            <div class="playlistHolder">
+              <div class="formHeader" style="margin-bottom: 20px;">Playlist</div>
+              <div class="playlistHolderInner" id="playListHolderInner">
+
+                <!-- <div class="listcampaign">
+                  <div class="campaignImage"></div>
+                  <div class="campaignDetails">
+                    <div class="campaignName">Ixion</div>
+                    <div class="campaignId">ID <span> 3333</span></div>
+                    <div class="campaignModifiedDate">09/01/2017</div>
+                  </div>
+
+                  <div class="sentMessage">ID Sent</div>
+                </div> -->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+</div>
+    <!--end div.row-->
+  
+
+<!--alert dialog-->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertLabel"
+     aria-hidden="true" ng-model="tempPkgCmd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="alertLabel">{{ tempPkgCmd.packageName }}</h4>
+            </div>
+            <div class="modal-body">Do you want to {{ tempPkgCmd.msg }} ?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        ng-click="tempPkgCmd.func(tempPkgCmd.serial, tempPkgCmd.packageName);">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+    <script>require('./js/jquery-ui.min.js')</script> 
+  	<script>require('./js/tag-it.min.js')</script>
+    <script>require('./js/adb_master.js')</script>
+    <script>require('./scripts/jquery.ptTimeSelect.js')</script>
+    
+</body>
+</html>
